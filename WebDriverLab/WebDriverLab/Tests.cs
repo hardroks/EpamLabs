@@ -31,20 +31,15 @@ namespace WebDriverLab
             PhonesLink.Click();
 
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            IWebElement Phones = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("/html/body/div[2]/div[5]/div/div/div[3]/div[2]/div/div[4]/a")));
+            IWebElement Phones = wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("Redmi Note 8")));
 
-            IWebElement goToRedmiNote8 = driver.FindElement(By.XPath("/html/body/div[2]/div[5]/div/div/div[3]/div[2]/div/div[4]/a"));
-            goToRedmiNote8.Click();
+            IWebElement RedmiNote8Link = driver.FindElement(By.LinkText("Redmi Note 8"));
+            RedmiNote8Link.Click();
 
-            IWebElement RedmiNote8 = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("/html/body/div[2]/div[5]/div[3]/div[1]/div/div/div/nav/ul/li[3]")));
+            IWebElement RedmiNote8 = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("accesuary-item")));
 
-            IWebElement goToAccessories = driver.FindElement(By.XPath("/html/body/div[2]/div[5]/div[3]/div[1]/div/div/div/nav/ul/li[3]"));
-            goToAccessories.Click();
-
-            IWebElement accessories = wait.Until(ExpectedConditions.ElementExists(By.Id("aces-block")));
-
-            IJavaScriptExecutor jse = (IJavaScriptExecutor)driver;
-            jse.ExecuteScript("scroll(0, 1250);");
+            IWebElement AccessoriesBlock = driver.FindElement(By.Id("accesuary-item"));
+            AccessoriesBlock.Click();
 
             Assert.NotNull(driver.FindElement(By.Id("aces-block")));
         }
