@@ -2,11 +2,10 @@
 *.log
 target/
 bin/
-/packages
+/WebDriverLab/packages/
 .vs/
-/vs
-/WebDriverLab/obj
-/WebDriverLab/bin
+/WebDriverLab/WebDriverLab/obj
+/WebDriverLab/WebDriverLab/bin
 *.rsuser
 *.suo
 *.user
