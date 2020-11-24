@@ -14,6 +14,7 @@ namespace WebDriverLab
     class Tests
     {
         IWebDriver driver;
+        
 
         [SetUp]
         public void SetupTests()
@@ -27,10 +28,11 @@ namespace WebDriverLab
         [Test]
         public void Test1()
         {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
             IWebElement PhonesLink = driver.FindElement(By.LinkText("Телефоны"));
             PhonesLink.Click();
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             IWebElement Phones = wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("Redmi Note 8")));
 
             IWebElement RedmiNote8Link = driver.FindElement(By.LinkText("Redmi Note 8"));
