@@ -33,14 +33,10 @@ namespace WebDriverLab
             IWebElement PhonesLink = driver.FindElement(By.LinkText("Телефоны"));
             PhonesLink.Click();
 
-            IWebElement Phones = wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("Redmi Note 8")));
-
-            IWebElement RedmiNote8Link = driver.FindElement(By.LinkText("Redmi Note 8"));
+            IWebElement RedmiNote8Link = wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("Redmi Note 8")));
             RedmiNote8Link.Click();
 
-            IWebElement RedmiNote8 = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("accesuary-item")));
-
-            IWebElement AccessoriesBlock = driver.FindElement(By.Id("accesuary-item"));
+            IWebElement AccessoriesBlock = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("accesuary-item")));
             AccessoriesBlock.Click();
 
             Assert.NotNull(driver.FindElement(By.Id("aces-block")));
