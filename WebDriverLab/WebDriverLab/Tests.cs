@@ -25,7 +25,7 @@ namespace WebDriverLab
         }
 
         [Test]
-        public void Test1()
+        public void AddTwoItemsToCart()
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
