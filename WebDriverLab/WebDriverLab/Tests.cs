@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WebDriverLab
@@ -29,8 +30,7 @@ namespace WebDriverLab
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
-            IWebElement Phones = driver.FindElement(By.LinkText("Телефоны"));
-            Phones.Click();
+            driver.Navigate().GoToUrl("https://xistore.by/catalog/telefony/");
 
             IWebElement RedmiNote8 = wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("Redmi Note 8")));
             RedmiNote8.Click();
@@ -38,10 +38,10 @@ namespace WebDriverLab
             IWebElement AddRedmiNote8ToCart = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("bx_2369550383_10342_buy_link")));
             AddRedmiNote8ToCart.Click();
 
-            IWebElement Earphones = wait.Until(ExpectedConditions.ElementToBeClickable(By.PartialLinkText("Аудио")));
-            Earphones.Click();
+            Thread.Sleep(1000);
+            driver.Navigate().GoToUrl("https://xistore.by/catalog/audio/");
 
-            IWebElement RedmiAirDots = wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("Беспроводные наушники Redmi AirDots")));
+            IWebElement RedmiAirDots = wait.Until(ExpectedConditions.ElementToBeClickable(By.PartialLinkText("Беспроводные наушники Redmi AirDots")));
             RedmiAirDots.Click();
 
             IWebElement AddRedmiAirDotsToCart = wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("bx_2369550383_8393_buy_link")));
@@ -50,10 +50,10 @@ namespace WebDriverLab
             IWebElement BasketItems = wait.Until(ExpectedConditions.ElementExists(By.Id("basket_items")));
 
             string RedmiNote8Price = BasketItems.FindElement(By.XPath("tbody/tr[1]/td[3]/div[1]")).Text;
-            string RedmiAirDotsPrice = BasketItems.FindElement(By.XPath("tbody/tr[2]/td[3]/div[1]")).Text; 
+            string RedmiAirDotsPrice = BasketItems.FindElement(By.XPath("tbody/tr[2]/td[3]/div[1]")).Text;
             string SummarizedPrice = driver.FindElement(By.Id("allSum_FORMATED")).Text;
 
-            Assert.AreEqual(GetPrice(SummarizedPrice), GetPrice(RedmiNote8Price)+GetPrice(RedmiAirDotsPrice));
+            Assert.AreEqual(GetPrice(SummarizedPrice), GetPrice(RedmiNote8Price) + GetPrice(RedmiAirDotsPrice));
         }
 
         [TearDown]
