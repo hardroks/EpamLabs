@@ -29,6 +29,7 @@ namespace WebDriverLab.Pages
         {
             driver.Navigate().GoToUrl(PAGE_URL);
             this.driver = driver;
+            Thread.Sleep(1000);
             PageFactory.InitElements(driver, page: this);
         }
 
