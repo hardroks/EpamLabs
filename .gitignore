@@ -3,9 +3,10 @@
 target/
 bin/
 /WebDriverLab/packages/
+/PageObject/packages/
 .vs/
-/WebDriverLab/WebDriverLab/obj
-/WebDriverLab/WebDriverLab/bin
+/PageObject/WebDriverLab/obj
+/PageObject/WebDriverLab/bin
 *.rsuser
 *.suo
 *.user
