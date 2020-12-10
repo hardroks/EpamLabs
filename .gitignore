@@ -7,6 +7,8 @@ bin/
 .vs/
 /PageObject/WebDriverLab/obj
 /PageObject/WebDriverLab/bin
+/WebDriverLab/WebDriverLab/obj
+/WebDriverLab/WebDriverLab/bin
 *.rsuser
 *.suo
 *.user
